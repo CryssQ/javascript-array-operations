@@ -101,7 +101,7 @@ function swapMinMax(array) {
 
 // Task 6
 function splitArrayPositiveAndNegative(array) {
-  let positiveArray = array.filter(num => num > 0);
+  let positiveArray = array.filter(num => num >= 0);
   let negativeArray = array.filter(num => num < 0);
 
   return {
