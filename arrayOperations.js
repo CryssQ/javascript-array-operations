@@ -30,26 +30,21 @@ function countAndSumEvenInRange(array, minValue, maxValue) {
     range: `від ${minValue} до ${maxValue}`,
     count: count,
     sum: sum
-  };
+  }
 }
 
 // Task 2
 function getAverageAndCountGreater(array) {
   if (array.length === 0) return { average: 0, countGreater: 0 };
 
-  let sum = 0;
-  for (let i = 0; i < array.length; i++) {
-    sum += array[i];
-  }
+const sum = array.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0,
+);
 
   let avrg = sum / array.length;
-  let countOfAvrg = 0;
 
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] > avrg) {
-      countOfAvrg++;
-    }
-  }
+  let countOfAvrg = array.filter((x) => x > avrg).length
 
   return {
     average: avrg,
@@ -171,8 +166,8 @@ function averageOfArray(firstArray, secondArray) {
 //////////       DEMONSTRATION         /////////////
 ////////////////////////////////////////////////////
 
-const firstArray = generateArray(3, -10, 10);
-const secondArray = generateArray(3, 0, 10);
+const firstArray = generateArray(5, -10, 10);
+const secondArray = generateArray(5, 0, 10);
 
 console.log("\nЗгенерований перший масив:");
 console.log(printFormattedArray(firstArray).join("\n"));
@@ -199,7 +194,7 @@ console.log("\n-------------TASK 6-------------", "\nМасив поділити
 console.log(splitArrayPositiveAndNegative(firstArray));
 
 console.log("\n-------------TASK 7-------------", "\nЗ масиву видалити дублікати максимума та мінімума.");
-console.log(deleteFromArrayDuplicates(firstArray));
+console.log(deleteFromArrayDuplicates([1,2,3,4,5,6,1,2,6,6,1]));
 
 console.log("\n-------------TASK 8-------------", "\nВизначити середні арифметичні двох масивів. Утворити третій масив з елементів обидвох масивів, що знаходяться в межах між значеннями середніх арифметичних");
 console.log(averageOfArray(firstArray, secondArray));
